@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程表</title>
+</head>
+<body>
+<div class="container">
+    <div class="left span" data-drop="move">
+        <div data-effect="copy" draggable="true" class="color1 item">语文</div>
+        <div data-effect="copy" draggable="true" class="color2 item">数学</div>
+        <div data-effect="copy" draggable="true" class="color3 item">英语</div>
+        <div data-effect="copy" draggable="true" class="color4 item">音乐</div>
+        <div data-effect="copy" draggable="true" class="color5 item">政治</div>
+        <div data-effect="copy" draggable="true" class="color6 item">历史</div>
+        <div data-effect="copy" draggable="true" class="color7 item">体育</div>
+        <div data-effect="copy" draggable="true" class="color8 item">生物</div>
+        <div data-effect="copy" draggable="true" class="color9 item">化学</div>
+        <div data-effect="copy" draggable="true" class="color10 item">物理</div>
+    </div>
+    <div class="right">
+        <div class="title" contenteditable="true">
+            <h1>课程表</h1>
+        </div>
+        <table class="table">
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+            </colgroup>
+            <thead>
+            <tr>
+                <td style="border: none"></td>
+                <th class="span">星期一</th>
+                <th class="span">星期二</th>
+                <th class="span">星期三</th>
+                <th class="span">星期四</th>
+                <th class="span add-date">星期五</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th rowspan="4" class="span">上午</th>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <th rowspan="4" class="span">下午</th>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            <tr>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+                <td data-drop="copy"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container end">
+    <div style="display:flex;padding: 10px;">
+        <div style="display: flex;margin-right: 10px;">
+            <span style="margin: auto">上午课节：</span>
+            <select style="margin-right: 10px;margin-top: 5px;height: 40px" name="sw">
+                <option>2</option>
+                <option>3</option>
+                <option selected="selected">4</option>
+                <option>5</option>
+            </select>
+            <span style="margin: auto">下午课节：</span>
+            <select style="margin-top: 5px;height: 40px" name="xw">
+                <option>2</option>
+                <option>3</option>
+                <option selected="selected">4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <button onclick="make()" style="margin-right: 10px">制作</button>
+        <button onclick="download()">下载</button>
+    </div>
+
+</div>
+<script src="./index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .container {
+        margin: auto;
+        max-width: 1200px;
+        display: flex;
+    }
+
+    .left {
+        border: 1px solid #626b72;
+        margin-right: 10px;
+        width: 200px;
+        padding: 10px;
+        margin-top: 100px;
+    }
+
+    .right {
+        padding: 10px;
+    }
+
+    .color1 {
+        background: #c89572;
+    }
+
+    .color2 {
+        background: #ecd19f;
+    }
+
+    .color3 {
+        background: #9b674a;
+    }
+
+    .color4 {
+        background: #c8da46;
+    }
+
+    .color5 {
+        background: #53a7d5;
+    }
+
+    .color6 {
+        background: #896dc0;
+    }
+
+    .color7 {
+        background: #98b0da;
+    }
+    .color8 {
+        background: #8ee3c0;
+    }
+
+    .color9 {
+        background: #a16f7c;
+    }
+
+    .color10 {
+        background: #7e865e;
+    }
+    .left .item {
+        margin: 5px;
+    }
+    .item {
+        border: 1px solid #1a1b1c;
+        margin: 2px;
+        text-align: center;
+        /*width: 100px;*/
+        height: 33px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    tr td {
+        /*padding: 8px;*/
+        width: 220px;
+        height: 46px;
+    }
+
+    table, table tr td, th {
+        border: 1px solid #626b72;
+    }
+
+    table {
+        padding: 20px;
+    }
+
+    .span {
+        background: #d1bdbd;
+    }
+
+    .br {
+        margin-top: 20px;
+    }
+    .drop-over {
+        background: #626b72;
+    }
+    .title {
+        border: none;
+        outline-style: none;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+    .end {
+        justify-content:end;
+    }
+    .end button {
+        cursor: pointer;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        margin-top: 5px;
+    }
+    .times {
+        border: none;
+        outline-style: none;
+        font-size: 20px;
+        border-bottom: solid 2px #0a001f;
+        width: 60px;
+        text-align: center;
+        margin: auto;
+    }
+
+</style>
+</html>
